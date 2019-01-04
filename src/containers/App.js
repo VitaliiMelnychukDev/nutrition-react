@@ -9,7 +9,8 @@ class App extends Component {
       {id: 1, name: 'Cabbage'},
       {id: 2, name: 'Potato'},
       {id: 3, name: 'Pepper'},
-    ]
+    ],
+    showProducts: false
   };
 
   nameChangedHandler = (event, id) => {
