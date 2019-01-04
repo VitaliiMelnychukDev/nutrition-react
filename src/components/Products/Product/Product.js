@@ -1,5 +1,5 @@
 import React from 'react';
-import './Person.scss';
+import './Product.scss';
 const product = (props) => {
   return (
     <div className="person">

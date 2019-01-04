@@ -1,25 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import Product from './Product/Product';
+import Products from '../components/Products/Products';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state  = {
+  state = {
     products: [
-      { id: 1, name: 'Cabbage' },
-      { id: 2, name: 'Potato' },
-      { id: 3, name: 'Pepper' },
+      {id: 1, name: 'Cabbage'},
+      {id: 2, name: 'Potato'},
+      {id: 3, name: 'Pepper'},
     ]
-  };
-
-  switchNameHandler = (newName) => {
-    this.setState({
-      products: [
-        { id: 1, name: newName },
-        { id: 2, name: 'Potato' },
-        { id: 3, name: 'Pepper' },
-      ],
-      showProducts: 1
-    });
   };
 
   nameChangedHandler = (event, id) => {
@@ -41,11 +31,13 @@ class App extends Component {
   deleteProductHandler = (index) => {
     const products = [...this.state.products];
     products.splice(index, 1);
+
     this.setState({products: products});
   };
 
   toggleProductsHandler = () => {
     const show = this.state.showProducts;
+
     this.setState({
       showProducts: !show
     });
@@ -56,14 +48,11 @@ class App extends Component {
     if (this.state.showProducts) {
       products = (
         <div>
-          {this.state.products.map((product, index) => {
-             return <Product
-              name={product.name}
-              click={() => this.deleteProductHandler(index)}
-              changed={(event) => this.nameChangedHandler(event, product.id)}
-              key={index}
-            />
-          })}
+          <Products
+            products={this.state.products}
+            clicked={this.deleteProductHandler}
+            changed={this.nameChangedHandler}
+          />
         </div>
       );
     }
@@ -72,7 +61,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <button onClick={this.toggleProductsHandler}>Products lists: </button>
+        <Cockpit click={this.toggleProductsHandler}/>
         {products}
         <footer className="App-footer">
         </footer>
