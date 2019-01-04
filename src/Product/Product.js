@@ -1,8 +1,8 @@
 import React from 'react';
-import './Person.css';
+import './Person.scss';
 const product = (props) => {
   return (
-    <div className="Person">
+    <div className="person">
       <p onClick={props.click}>Product name is {props.name}</p>
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} value={props.name} />
