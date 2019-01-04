@@ -3,7 +3,11 @@
 }
 
 .App-header {
+  background-color: cornflowerblue;
+  height: 100px;
 }
 
 .App-footer {
+  background-color: cornflowerblue;
+  height: 100px;
 }
